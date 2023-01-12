@@ -57,7 +57,7 @@ export default function ForgotPassword() {
           bg-blue-600 text-white px-7 py-3 text-sm font-medium uppercase rounded shadow-md hover:bg-blue-700 transition duration-150 ease-in-out hover:shadow-lg active:bg-blue-800
           '
               type='submit'>Send reset password</button>
-            <div className='flex items-center my-4 before:border-t flex before:flex-1  before:border-gray-500 after:border-t flex after:flex-1  after:border-gray-500'>
+            <div className='Flex items-center my-4 before:border-t Flex before:flex-1  before:border-gray-500 after:border-t flex after:flex-1  after:border-gray-500'>
               <p className='text-center font-semibold mx-4'>OR</p>
             </div>
            <OAuth></OAuth>
