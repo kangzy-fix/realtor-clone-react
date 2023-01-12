@@ -52,7 +52,7 @@ export default function Profile() {
         <input type="email" id='email' value={email} disabled className='mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded transition ease-in-out' />      
 
         <div className='flex justify-between whitespace-nowrap text-sm sm:text-lg mb-6'>
-          <p className='flex items-center '>Do you want yo change your name? <span onClick={ () => {
+          <p className='flex items-center '>Do you want you change your name? <span onClick={ () => {
             changeDetail && onSubmit();
            setChangeDetail((prevState) => !prevState);
           }}
