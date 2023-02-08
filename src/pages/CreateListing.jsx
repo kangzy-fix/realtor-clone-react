@@ -217,7 +217,7 @@ export default function CreateListing() {
         />
         <div className="flex space-x-6 mb-6">
           <div>
-            <p className="text-lg font-semibold">Beds</p>
+            <p className="text-lg font-semibold">Bedroom</p>
             <input
               type="number"
               id="bedrooms"
@@ -230,7 +230,7 @@ export default function CreateListing() {
             />
           </div>
           <div>
-            <p className="text-lg font-semibold">Baths</p>
+            <p className="text-lg font-semibold">Bathroom</p>
             <input
               type="number"
               id="bathrooms"
