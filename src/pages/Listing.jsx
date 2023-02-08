@@ -109,11 +109,11 @@ export default function Listing() {
           <ul className="flex items-center space-x-2 sm:space-x-10 text-sm font-semibold mb-6">
             <li className="flex items-center whitespace-nowrap">
               <FaBed className="text-lg mr-1" />
-              {+listing.bedrooms > 1 ? `${listing.bedrooms} Bedrooms` : "1 Bedroom"}
+              {+listing.bedrooms > 1 ? `${listing.bedrooms} Beds` : "1 Bed"}
             </li>
             <li className="flex items-center whitespace-nowrap">
               <FaBath className="text-lg mr-1" />
-              {+listing.bathrooms > 1 ? `${listing.bathrooms} Bathrooms` : "1 Bathroom"}
+              {+listing.bathrooms > 1 ? `${listing.bathrooms} Bath` : "1 Bath"}
             </li>
             <li className="flex items-center whitespace-nowrap">
               <FaParking className="text-lg mr-1" />
