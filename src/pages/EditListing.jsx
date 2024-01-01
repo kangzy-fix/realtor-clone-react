@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import { useState } from "react";
 import Spinner from "../components/Spinner";
@@ -11,12 +11,7 @@ import {
 } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
-import {
-  doc,
-  getDoc,
-  serverTimestamp,
-  updateDoc,
-} from "firebase/firestore";
+import { doc, getDoc, serverTimestamp, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
@@ -24,7 +19,7 @@ import { useEffect } from "react";
 export default function CreateListing() {
   const navigate = useNavigate();
   const auth = getAuth();
-  const [geolocationEnabled ] = useState(true);
+  const [geolocationEnabled] = useState(true);
   const [loading, setLoading] = useState(false);
   const [listing, setListing] = useState(null);
   const [formData, setFormData] = useState({
@@ -126,7 +121,7 @@ export default function CreateListing() {
     let location;
     if (geolocationEnabled) {
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_GEOCODE_API_KEY}`
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${"AIzaSyCjQLCCbRKFhsr8BY78g2PQ0_bTyrm_YXU"}`
       );
       const data = await response.json();
       console.log(data);
@@ -154,8 +149,6 @@ export default function CreateListing() {
         uploadTask.on(
           "state_changed",
           (snapshot) => {
-            // Observe state change events such as progress, pause, and resume
-            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
             const progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             console.log("Upload is " + progress + "% done");
@@ -224,11 +217,10 @@ export default function CreateListing() {
             id="type"
             value="sale"
             onClick={onChange}
-            className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              type === "rent"
-                ? "bg-white text-black"
-                : "bg-slate-600 text-white"
-            }`}
+            className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${type === "rent"
+              ? "bg-white text-black"
+              : "bg-slate-600 text-white"
+              }`}
           >
             sell
           </button>
@@ -237,11 +229,10 @@ export default function CreateListing() {
             id="type"
             value="rent"
             onClick={onChange}
-            className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              type === "sale"
-                ? "bg-white text-black"
-                : "bg-slate-600 text-white"
-            }`}
+            className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${type === "sale"
+              ? "bg-white text-black"
+              : "bg-slate-600 text-white"
+              }`}
           >
             rent
           </button>
@@ -293,9 +284,8 @@ export default function CreateListing() {
             id="parking"
             value={true}
             onClick={onChange}
-            className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              !parking ? "bg-white text-black" : "bg-slate-600 text-white"
-            }`}
+            className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${!parking ? "bg-white text-black" : "bg-slate-600 text-white"
+              }`}
           >
             Yes
           </button>
@@ -304,9 +294,8 @@ export default function CreateListing() {
             id="parking"
             value={false}
             onClick={onChange}
-            className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              parking ? "bg-white text-black" : "bg-slate-600 text-white"
-            }`}
+            className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${parking ? "bg-white text-black" : "bg-slate-600 text-white"
+              }`}
           >
             no
           </button>
@@ -318,9 +307,8 @@ export default function CreateListing() {
             id="furnished"
             value={true}
             onClick={onChange}
-            className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              !furnished ? "bg-white text-black" : "bg-slate-600 text-white"
-            }`}
+            className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${!furnished ? "bg-white text-black" : "bg-slate-600 text-white"
+              }`}
           >
             yes
           </button>
@@ -329,9 +317,8 @@ export default function CreateListing() {
             id="furnished"
             value={false}
             onClick={onChange}
-            className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              furnished ? "bg-white text-black" : "bg-slate-600 text-white"
-            }`}
+            className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${furnished ? "bg-white text-black" : "bg-slate-600 text-white"
+              }`}
           >
             no
           </button>
@@ -393,9 +380,8 @@ export default function CreateListing() {
             id="offer"
             value={true}
             onClick={onChange}
-            className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              !offer ? "bg-white text-black" : "bg-slate-600 text-white"
-            }`}
+            className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${!offer ? "bg-white text-black" : "bg-slate-600 text-white"
+              }`}
           >
             yes
           </button>
@@ -404,9 +390,8 @@ export default function CreateListing() {
             id="offer"
             value={false}
             onClick={onChange}
-            className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${
-              offer ? "bg-white text-black" : "bg-slate-600 text-white"
-            }`}
+            className={`ml-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-in-out w-full ${offer ? "bg-white text-black" : "bg-slate-600 text-white"
+              }`}
           >
             no
           </button>
@@ -469,9 +454,7 @@ export default function CreateListing() {
             id="images"
             onChange={onChange}
             accept=".jpg,.png,.jpeg"
-            multiple
-            required
-            className="w-full px-3 py-1.5 text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:bg-white focus:border-slate-600"
+            multiple required className="w-full px-3 py-1.5 text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:bg-white focus:border-slate-600"
           />
         </div>
         <button
