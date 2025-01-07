@@ -243,3 +243,4 @@ Update for 2024-12-26
 Update for 2024-12-28
 Update for 2024-12-29
 Update for 2024-12-30
+Update for 2025-01-07: Fixed bug in the property listing page.
